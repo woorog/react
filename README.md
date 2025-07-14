@@ -1,6 +1,7 @@
 설치 
 /project 위치에서
 npm insatll 
+
 실행
 /project 위치에서
 num run dev
