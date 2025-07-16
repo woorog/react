@@ -1,5 +1,5 @@
 // src/main/java/com/example/demo/UserSchema.java
-package com.example.demo;
+package com.example.demo.domain;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;

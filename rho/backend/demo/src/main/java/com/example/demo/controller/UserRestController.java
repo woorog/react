@@ -1,8 +1,12 @@
 // src/main/java/com/example/demo/UserRestController.java
-package com.example.demo;
+package com.example.demo.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import com.example.demo.domain.UserSchema;
+import com.example.demo.repository.UserRepository;
+
 import java.util.List;
 
 @RestController
