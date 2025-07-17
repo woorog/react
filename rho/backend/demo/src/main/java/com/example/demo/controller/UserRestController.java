@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.domain.UserSchema;
-import com.example.demo.repository.UserRepositoryTests;
+import com.example.demo.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -15,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/users")
 @RequiredArgsConstructor
 public class UserRestController {
-    private final UserRepositoryTests repo;
+    private final UserRepository repo;
 
     // CREATE
     @PostMapping

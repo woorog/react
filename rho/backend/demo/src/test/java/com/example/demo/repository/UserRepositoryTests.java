@@ -1,10 +1,24 @@
 // src/main/java/com/example/demo/UserRepository.java
 package com.example.demo.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import com.example.demo.domain.UserSchema;
 
-public interface UserRepositoryTests extends JpaRepository<UserSchema, Long> {
-    // 추가 쿼리 메서드가 필요하면 여기에 선언
+import lombok.extern.log4j.Log4j2;
+
+@SpringBootTest
+@Log4j2
+public class UserRepositoryTests {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Test
+    public void test1() {
+        Assertions.assertNotNull(userRepository);
+        log.info("userRepository class: " + userRepository.getClass().getName());
+    }
 }
