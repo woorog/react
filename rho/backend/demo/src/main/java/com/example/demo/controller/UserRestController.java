@@ -1,22 +1,21 @@
-// src/main/java/com/example/demo/UserRestController.java
+// src/main/java/com/example/demo/controller/UserRestController.java
 package com.example.demo.controller;
+
+import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.domain.UserSchema;
-import com.example.demo.repository.UserRepository;
+import com.example.demo.repository.UserRepositoryTests;
 
-import java.util.List;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/users")
+@RequiredArgsConstructor
 public class UserRestController {
-    private final UserRepository repo;
-
-    public UserRestController(UserRepository repo) {
-        this.repo = repo;
-    }
+    private final UserRepositoryTests repo;
 
     // CREATE
     @PostMapping
@@ -38,18 +37,23 @@ public class UserRestController {
                    .orElseThrow(() -> new RuntimeException("User not found: " + id));
     }
 
-    // UPDATE
+    // UPDATE (Builder 사용)
     @PutMapping("/{id}")
     public UserSchema updateUser(@PathVariable Long id,
                                  @RequestBody UserSchema updated) {
-        return repo.findById(id)
-                   .map(user -> {
-                       user.setUsername(updated.getUsername());
-                       user.setEmail(updated.getEmail());
-                       user.setPassword(updated.getPassword());
-                       return repo.save(user);
-                   })
-                   .orElseThrow(() -> new RuntimeException("User not found: " + id));
+        UserSchema existing = repo.findById(id)
+            .orElseThrow(() -> new RuntimeException("User not found: " + id));
+
+        // Builder로 새 객체를 생성 (기존 createdAt 유지, id 포함)
+        UserSchema toSave = UserSchema.builder()
+            .id(existing.getId())
+            .username(updated.getUsername())
+            .email(updated.getEmail())
+            .password(updated.getPassword())
+            .created(existing.getCreated())
+            .build();
+
+        return repo.save(toSave);
     }
 
     // DELETE

@@ -44,5 +44,6 @@
             "username": "apidbuser",
             "askForPassword": true
         }
-    ]
+    ],
+    "java.compile.nullAnalysis.mode": "automatic"
 }
