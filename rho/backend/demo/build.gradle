@@ -40,6 +40,10 @@ dependencies {
 	testCompileOnly 'org.projectlombok:lombok'
 	testAnnotationProcessor 'org.projectlombok:lombok'
 
+	// Use in-memory database for tests
+    testRuntimeOnly 'com.h2database:h2'
+	testImplementation 'com.h2database:h2'
+
 }
 
 tasks.named('test') {
