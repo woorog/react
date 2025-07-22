@@ -151,3 +151,7 @@ node_modules
 psd
 thumb
 sketch
+
+###sql 부분###
+/sql_setup/
+

@@ -1,0 +1,49 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MariaDB",
+            "name": "wooro",
+            "group": "wooro",
+            "database": "react_demo",
+            "username": "react_user"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MariaDB",
+            "name": "Local MariaDB Root",
+            "group": "wooro",
+            "username": "root",
+            "database": "mysql",
+            "askForPassword": true
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MariaDB",
+            "name": "apidb",
+            "group": "wooro",
+            "database": "apidb",
+            "username": "apidbuser",
+            "askForPassword": true
+        }
+    ],
+    "java.compile.nullAnalysis.mode": "automatic"
+}
